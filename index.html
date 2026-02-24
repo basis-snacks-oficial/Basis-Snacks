@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basi's Snacks | Calidad y Sabor para tus Eventos</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#FF8C42',
+                            red: '#D9534F',
+                            cream: '#FFF5E1',
+                            dark: '#2C3E50',
+                            green: '#27AE60',
+                            gold: '#F1C40F'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        script: ['Pacifico', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-brand-cream text-gray-800 smooth-scroll font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-white/95 backdrop-blur-sm shadow-md fixed w-full z-40 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <!-- Logo Image -->
+            <a href="#" class="flex items-center gap-2">
+                <img src="logo sin fondo.png" alt="Basi's Snacks Logo" class="h-16 md:h-20 w-auto object-contain"
+                    onerror="this.onerror=null; this.src='https://placehold.co/200x80?text=Basi\'s+Snacks';">
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-6 font-medium text-sm lg:text-base">
+                <a href="#inicio" class="hover:text-brand-orange transition">Inicio</a>
+                <a href="#menu" class="hover:text-brand-orange transition">Menú</a>
+                <a href="#proceso" class="hover:text-brand-orange transition">Cómo Funciona</a>
+                <a href="#testimonios" class="hover:text-brand-orange transition">Clientes</a>
+                <a href="#faq" class="hover:text-brand-orange transition">FAQ</a>
+
+
+
+                <button onclick="scrollToContact()"
+                    class="bg-brand-orange text-white px-5 py-2 rounded-full hover:bg-orange-600 transition shadow-lg transform hover:-translate-y-0.5">
+                    Hacer Pedido
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button & Cart -->
+            <div class="flex items-center gap-4 md:hidden">
+
+                <button class="text-2xl text-brand-dark" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg">
+            <div class="flex flex-col p-4 space-y-3 font-medium text-center">
+                <a href="#inicio" class="block text-gray-700 hover:text-brand-orange py-2"
+                    onclick="toggleMobileMenu()">Inicio</a>
+                <a href="#menu" class="block text-gray-700 hover:text-brand-orange py-2"
+                    onclick="toggleMobileMenu()">Menú</a>
+                <a href="#proceso" class="block text-gray-700 hover:text-brand-orange py-2"
+                    onclick="toggleMobileMenu()">Cómo Funciona</a>
+                <a href="#testimonios" class="block text-gray-700 hover:text-brand-orange py-2"
+                    onclick="toggleMobileMenu()">Testimonios</a>
+                <a href="#faq" class="block text-gray-700 hover:text-brand-orange py-2"
+                    onclick="toggleMobileMenu()">Preguntas</a>
+                <a href="#contacto" class="block text-brand-orange font-bold py-2" onclick="toggleMobileMenu()">¡Ordenar
+                    Ahora!</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg h-screen flex items-center justify-center text-center px-4 relative">
+        <div class="max-w-4xl text-white animate-fade-in-up pt-16">
+            <div class="inline-block animate-bounce mb-4">
+                <span
+                    class="bg-brand-orange px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider shadow-lg border border-white/20">
+                    <i class="fas fa-star mr-1"></i> La marca mexicana preferida
+                </span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 font-script drop-shadow-lg">Disfruta tus Momentos Especiales
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 font-light max-w-2xl mx-auto drop-shadow-md">Ofrecemos snacks de alta
+                calidad para deleitar y amenizar tus eventos. Ideal para escuelas, fiestas y reuniones.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})"
+                    class="bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-8 rounded-full shadow-xl transition transform hover:scale-105 border-2 border-brand-red">
+                    <i class="fas fa-utensils mr-2"></i> Ver Menú
+                </button>
+                <a href="https://wa.me/525951049071" target="_blank"
+                    class="bg-white/10 backdrop-blur-md border-2 border-white hover:bg-white hover:text-brand-dark text-white font-bold py-4 px-8 rounded-full shadow-xl transition transform hover:scale-105">
+                    <i class="fab fa-whatsapp mr-2"></i> Cotizar Evento
+                </a>
+            </div>
+        </div>
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-8 animate-bounce text-white text-2xl opacity-70">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-brand-cream container mx-auto px-4 scroll-mt-20">
+        <div class="text-center mb-16">
+            <span class="text-brand-red font-bold tracking-widest uppercase text-sm">Nuestro Sabor</span>
+            <h2 class="text-4xl font-bold text-brand-dark mt-2 mb-4">Línea de Snacks</h2>
+            <div class="w-24 h-1 bg-brand-orange mx-auto rounded"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <!-- Item 1: Cuernitos -->
+            <div
+                class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                <div class="h-56 overflow-hidden card-zoom relative">
+                    <img src="1- cuernito de jamon queso amarillo.png" alt="Cuernito de Jamón y Queso Amarillo"
+                        class="w-full h-full object-cover">
+                    <div
+                        class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-brand-red font-bold shadow text-sm">
+                        Clásico</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-brand-dark">Cuernitos</h3>
+                        <span class="text-brand-orange font-bold text-lg">Especial</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-4">Deliciosos croissants frescos rellenos de ingredientes de
+                        primera calidad. Perfectos para cualquier reunión.</p>
+                    <button onclick="scrollToContact()"
+                        class="w-full bg-brand-dark text-white py-2 rounded-lg hover:bg-brand-orange transition flex items-center justify-center gap-2 group-hover:shadow-md">
+                        <i class="fas fa-comment-dots"></i> Cotizar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Item 2: Cuernito de Queso Blanco -->
+            <div
+                class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                <div class="h-56 overflow-hidden card-zoom relative">
+                    <img src="cuarnito de queso blanco.png" alt="Cuernito de Queso Blanco"
+                        class="w-full h-full object-cover">
+                    <div
+                        class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-brand-red font-bold shadow text-sm">
+                        Clásico</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-brand-dark">Cuernito de Queso Blanco</h3>
+                        <span class="text-brand-orange font-bold text-lg">Nuevo</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-4">Cuernito suave y dorado relleno de queso blanco derretido. Un
+                        clásico irresistible.</p>
+                    <button onclick="scrollToContact()"
+                        class="w-full bg-brand-dark text-white py-2 rounded-lg hover:bg-brand-orange transition flex items-center justify-center gap-2 group-hover:shadow-md">
+                        <i class="fas fa-comment-dots"></i> Cotizar
+                    </button>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <!-- Item 5: Monjita de Atún -->
+            <div
+                class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                <div class="h-56 overflow-hidden card-zoom relative">
+                    <img src="monjita de pollo.png" alt="Monjita de Atún" class="w-full h-full object-cover">
+                    <div
+                        class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-brand-red font-bold shadow text-sm">
+                        Especial</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-brand-dark">Monjita de Atún</h3>
+                        <span class="text-brand-orange font-bold text-lg">Nuevo</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-4">Deliciosa monjita rellena de atún, preparada con nuestra
+                        receta secreta. Un sabor único y fresco.</p>
+                    <button onclick="scrollToContact()"
+                        class="w-full bg-brand-dark text-white py-2 rounded-lg hover:bg-brand-orange transition flex items-center justify-center gap-2 group-hover:shadow-md">
+                        <i class="fas fa-comment-dots"></i> Cotizar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Item 6: Monjita de Pollo -->
+            <div
+                class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                <div class="h-56 overflow-hidden card-zoom relative">
+                    <img src="monja de pollo .png" alt="Monjita de Pollo" class="w-full h-full object-cover">
+                    <div
+                        class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-brand-red font-bold shadow text-sm">
+                        Especial</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-brand-dark">Monjita de Pollo</h3>
+                        <span class="text-brand-orange font-bold text-lg">Nuevo</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-4">Deliciosa monjita rellena de pollo, preparada con nuestra
+                        receta secreta. Un sabor único.</p>
+                    <button onclick="scrollToContact()"
+                        class="w-full bg-brand-dark text-white py-2 rounded-lg hover:bg-brand-orange transition flex items-center justify-center gap-2 group-hover:shadow-md">
+                        <i class="fas fa-comment-dots"></i> Cotizar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Item 7: Monjitas de Mole -->
+            <div
+                class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                <div class="h-56 overflow-hidden card-zoom relative">
+                    <img src="monjitas de mole .png" alt="Monjitas de Mole" class="w-full h-full object-cover">
+                    <div
+                        class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-brand-red font-bold shadow text-sm">
+                        Especial</div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-brand-dark">Monjitas de Mole</h3>
+                        <span class="text-brand-orange font-bold text-lg">Nuevo</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-4">Exquisitas monjitas rellenas de mole casero. Un toque
+                        tradicional irresistible.</p>
+                    <button onclick="scrollToContact()"
+                        class="w-full bg-brand-dark text-white py-2 rounded-lg hover:bg-brand-orange transition flex items-center justify-center gap-2 group-hover:shadow-md">
+                        <i class="fas fa-comment-dots"></i> Cotizar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-brand-dark">Clientes Felices</h2>
+                <p class="text-gray-600 mt-2">Momentos especiales con el sabor de Basi's Snacks</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div
+                    class="bg-gray-50 p-8 rounded-2xl border border-gray-100 relative shadow-sm hover:shadow-lg transition">
+                    <i class="fas fa-quote-left text-4xl text-brand-orange/20 absolute top-4 left-4"></i>
+                    <p class="text-gray-600 mb-6 relative z-10 italic">"Contraté el servicio para el convivio de la
+                        escuela de mi hijo. Todo llegó a tiempo y los niños amaron las monjitas. ¡Súper recomendado!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://ui-avatars.com/api/?name=Ana+Lopez&background=FF8C42&color=fff"
+                            class="w-12 h-12 rounded-full" alt="Cliente">
+                        <div>
+                            <h4 class="font-bold text-brand-dark">Ana López</h4>
+                            <div class="text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div
+                    class="bg-gray-50 p-8 rounded-2xl border border-gray-100 relative shadow-sm hover:shadow-lg transition">
+                    <i class="fas fa-quote-left text-4xl text-brand-orange/20 absolute top-4 left-4"></i>
+                    <p class="text-gray-600 mb-6 relative z-10 italic">"Los cuernitos están increíbles. Se nota la
+                        frescura de los ingredientes. Definitivamente volveré a pedir para mi próxima reunión."</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://ui-avatars.com/api/?name=Carlos+R&background=D9534F&color=fff"
+                            class="w-12 h-12 rounded-full" alt="Cliente">
+                        <div>
+                            <h4 class="font-bold text-brand-dark">Carlos Ruiz</h4>
+                            <div class="text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div
+                    class="bg-gray-50 p-8 rounded-2xl border border-gray-100 relative shadow-sm hover:shadow-lg transition">
+                    <i class="fas fa-quote-left text-4xl text-brand-orange/20 absolute top-4 left-4"></i>
+                    <p class="text-gray-600 mb-6 relative z-10 italic">"Excelente atención al cliente. Me ayudaron a
+                        calcular cuántos snacks necesitaba para 50 personas. ¡Gracias equipo Basi's!"</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://ui-avatars.com/api/?name=Mariana+G&background=27AE60&color=fff"
+                            class="w-12 h-12 rounded-full" alt="Cliente">
+                        <div>
+                            <h4 class="font-bold text-brand-dark">Mariana G.</h4>
+                            <div class="text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work Section -->
+    <section id="proceso" class="py-20 bg-brand-cream relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-brand-dark mb-4">¿Cómo trabajamos?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Nuestro proceso asegura que recibas tus snacks frescos y
+                    listos para disfrutar.</p>
+            </div>
+
+            <div class="relative">
+                <!-- Connector Line (Desktop) -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-brand-orange/20 -translate-y-1/2 z-0">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                    <!-- Step 1 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg text-center transform hover:-translate-y-2 transition duration-300">
+                        <div
+                            class="w-16 h-16 bg-brand-orange text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-4 font-bold border-4 border-white shadow">
+                            1</div>
+                        <h3 class="font-bold text-xl mb-2">Contáctanos</h3>
+                        <p class="text-sm text-gray-500">Escríbenos por WhatsApp o redes sociales para cotizar tu
+                            evento.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg text-center transform hover:-translate-y-2 transition duration-300">
+                        <div
+                            class="w-16 h-16 bg-brand-red text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-4 font-bold border-4 border-white shadow">
+                            2</div>
+                        <h3 class="font-bold text-xl mb-2">Agenda tu Pedido</h3>
+                        <p class="text-sm text-gray-500">Confirmamos la fecha y cantidad. ¡Ideal para escuelas y
+                            fiestas!</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg text-center transform hover:-translate-y-2 transition duration-300">
+                        <div
+                            class="w-16 h-16 bg-brand-green text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-4 font-bold border-4 border-white shadow">
+                            3</div>
+                        <h3 class="font-bold text-xl mb-2">Preparación Fresca</h3>
+                        <p class="text-sm text-gray-500">Compramos la materia prima y elaboramos tus snacks con higiene
+                            total.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg text-center transform hover:-translate-y-2 transition duration-300">
+                        <div
+                            class="w-16 h-16 bg-brand-dark text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-4 font-bold border-4 border-white shadow">
+                            4</div>
+                        <h3 class="font-bold text-xl mb-2">Entrega</h3>
+                        <p class="text-sm text-gray-500">Empacamos todo cuidadosamente con nuestro sello distintivo y
+                            entregamos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-brand-dark">Preguntas Frecuentes</h2>
+            </div>
+
+            <div class="space-y-4">
+                <details class="group bg-gray-50 p-6 rounded-xl cursor-pointer shadow-sm">
+                    <summary class="flex justify-between items-center font-bold text-lg text-brand-dark">
+                        ¿Con cuánto tiempo de anticipación debo pedir?
+                        <span class="transition group-open:rotate-180"><i
+                                class="fas fa-chevron-down text-brand-orange"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 leading-relaxed">Recomendamos realizar tu pedido con al menos 3 días de
+                        anticipación para eventos grandes. Para pedidos pequeños, contáctanos para verificar
+                        disponibilidad.</p>
+                </details>
+
+                <details class="group bg-gray-50 p-6 rounded-xl cursor-pointer shadow-sm">
+                    <summary class="flex justify-between items-center font-bold text-lg text-brand-dark">
+                        ¿Cuál es el pedido mínimo?
+                        <span class="transition group-open:rotate-180"><i
+                                class="fas fa-chevron-down text-brand-orange"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 leading-relaxed">No tenemos un mínimo estricto, pero ofrecemos precios
+                        especiales y entrega gratis en paquetes a partir de 20 piezas.</p>
+                </details>
+
+                <details class="group bg-gray-50 p-6 rounded-xl cursor-pointer shadow-sm">
+                    <summary class="flex justify-between items-center font-bold text-lg text-brand-dark">
+                        ¿Entregan a domicilio?
+                        <span class="transition group-open:rotate-180"><i
+                                class="fas fa-chevron-down text-brand-orange"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 leading-relaxed">¡Sí! Realizamos entregas a domicilio y en puntos
+                        medios estratégicos. El costo de envío puede variar según la zona.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Strip -->
+    <section class="py-4 bg-brand-dark overflow-hidden">
+        <div class="flex justify-center gap-4 opacity-50 hover:opacity-100 transition duration-500">
+            <img src="1- cuernito de jamon queso amarillo.png"
+                class="h-32 w-32 object-cover rounded-lg transform hover:scale-110 transition">
+            <img src="cuarnito de queso blanco.png"
+                class="h-32 w-32 object-cover rounded-lg transform hover:scale-110 transition">
+            <img src="monjita de pollo.png"
+                class="h-32 w-32 object-cover rounded-lg transform hover:scale-110 transition">
+            <img src="monja de pollo .png"
+                class="h-32 w-32 object-cover rounded-lg transform hover:scale-110 transition hidden md:block">
+            <img src="monjitas de mole .png"
+                class="h-32 w-32 object-cover rounded-lg transform hover:scale-110 transition hidden md:block">
+        </div>
+        <p class="text-center text-white/50 text-xs mt-2 uppercase tracking-widest">Síguenos en Instagram @basis_snacks
+        </p>
+    </section>
+
+    <!-- Contact & CTA -->
+    <section id="contacto" class="bg-white py-20 relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+            <div class="md:w-1/2">
+                <span class="text-brand-orange font-bold text-lg mb-2 block">Contacto</span>
+                <h2 class="text-4xl font-bold mb-6 font-script text-brand-dark">¿Listo para ordenar?</h2>
+                <p class="text-lg text-gray-600 mb-8">Contáctanos por redes sociales o WhatsApp. Tomamos pedidos y
+                    coordinamos la entrega.</p>
+
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4 group cursor-pointer hover:translate-x-2 transition">
+                        <div
+                            class="w-12 h-12 bg-brand-cream group-hover:bg-brand-orange group-hover:text-white transition rounded-full flex items-center justify-center text-brand-orange shadow-sm">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <span class="text-lg font-medium">+52 595 104 9071</span>
+                    </div>
+                    <div class="flex items-center gap-4 group cursor-pointer hover:translate-x-2 transition">
+                        <div
+                            class="w-12 h-12 bg-brand-cream group-hover:bg-brand-orange group-hover:text-white transition rounded-full flex items-center justify-center text-brand-orange shadow-sm">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <span class="text-lg font-medium">@basis_snacks</span>
+                    </div>
+                    <div class="flex items-center gap-4 group cursor-pointer hover:translate-x-2 transition">
+                        <div
+                            class="w-12 h-12 bg-brand-cream group-hover:bg-brand-orange group-hover:text-white transition rounded-full flex items-center justify-center text-brand-orange shadow-sm">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <span class="text-lg font-medium">Entregas a domicilio y puntos medios</span>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="md:w-1/2 bg-white text-gray-800 p-8 rounded-2xl shadow-2xl border border-gray-100 w-full max-w-md relative">
+                <!-- Decorative element -->
+                <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-orange/10 rounded-full blur-2xl"></div>
+
+                <form onsubmit="event.preventDefault(); sendMessage();" class="relative z-10">
+                    <h3 class="text-2xl font-bold mb-6 text-brand-dark">Resumen del Pedido</h3>
+
+
+
+                    <div class="mb-4">
+                        <label class="block text-sm font-bold mb-2 text-gray-600">Nombre</label>
+                        <input type="text"
+                            class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 transition"
+                            placeholder="Tu nombre completo">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-bold mb-2 text-gray-600">Detalles adicionales</label>
+                        <textarea
+                            class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 h-24 focus:outline-none focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 transition"
+                            placeholder="Hola, me interesan los cuernitos para el viernes..."></textarea>
+                    </div>
+                    <button
+                        class="w-full bg-brand-green text-white font-bold py-4 rounded-lg hover:bg-green-700 transition shadow-lg transform active:scale-95 flex justify-center items-center gap-2">
+                        Enviar Pedido por WhatsApp <i class="fab fa-whatsapp text-xl"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-500 py-10 text-center text-sm border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="mb-6">
+                <span class="font-script text-2xl text-white">Basi's Snacks</span>
+            </div>
+            <p class="mb-6 max-w-md mx-auto">Llevando el mejor sabor casero a tus eventos más importantes. Calidad y
+                frescura garantizada.</p>
+            <p>&copy; 2025 Basi's Snacks. Todos los derechos reservados.</p>
+            <div class="mt-6 flex justify-center gap-6 text-2xl">
+                <a href="https://www.facebook.com/profile.php?id=61586777450703&locale=es_LA"
+                    class="hover:text-brand-orange transition transform hover:scale-110"><i
+                        class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/basissnacks/" class="hover:text-brand-orange transition transform hover:scale-110"><i
+                        class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/525951049071" target="_blank"
+        class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-4xl shadow-2xl hover:bg-green-600 transition z-50 animate-bounce hover:animate-none group">
+        <i class="fab fa-whatsapp group-hover:rotate-12 transition duration-300"></i>
+        <!-- Tooltip -->
+        <span
+            class="absolute right-full mr-4 bg-white text-gray-800 text-sm py-1 px-3 rounded shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition pointer-events-none">¡Cotiza
+            aquí!</span>
+    </a>
+
+
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
