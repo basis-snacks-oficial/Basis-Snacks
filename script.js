@@ -59,7 +59,7 @@ window.addEventListener("load", () => {
         const tl = gsap.timeline();
 
         // 0. Navbar Animation
-        tl.from("#navbar", { y: -100, opacity: 0, duration: 0.8, ease: "power2.out" })
+        tl.from("#navbar", { y: -100, duration: 0.8, ease: "power2.out" })
         // 1. Hero Section Animations
           .from(".hero-badge", { y: -30, opacity: 0, duration: 0.8, ease: "back.out(1.7)" }, "-=0.4")
           .from(".hero-title", { y: 30, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.4")
