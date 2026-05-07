@@ -93,3 +93,26 @@ details[open] summary~* {
 .badge-pop {
     animation: pop 0.3s ease;
 }
+
+/* Button Shine Effect */
+.btn-shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    transition: all 0.75s;
+    z-index: 1;
+}
+
+.btn-shine:hover::after {
+    animation: shine 1.5s ease-out infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
