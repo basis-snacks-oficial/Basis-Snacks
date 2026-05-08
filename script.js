@@ -60,12 +60,11 @@ window.addEventListener("load", () => {
 
         // 0. Navbar Animation (Removed for stability)
         // 1. Hero Section Animations
-        tl.from(".hero-badge", { y: -30, opacity: 0, duration: 0.8, ease: "back.out(1.7)" })
-          .from(".hero-title", { y: 30, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.4")
-          .from(".hero-subtitle", { y: 20, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.4")
+        tl.from(".hero-badge", { y: -30, duration: 0.8, ease: "back.out(1.7)" })
+          .from(".hero-title", { y: 30, duration: 0.8, ease: "power3.out" }, "-=0.4")
+          .from(".hero-subtitle", { y: 20, duration: 0.8, ease: "power3.out" }, "-=0.4")
           .from(".hero-buttons a, .hero-buttons button", { 
               y: 20, 
-              opacity: 0, 
               duration: 0.6, 
               stagger: 0.2, 
               ease: "power2.out" 
