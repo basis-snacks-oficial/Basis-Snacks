@@ -62,13 +62,7 @@ window.addEventListener("load", () => {
         // 1. Hero Section Animations
         tl.from(".hero-badge", { y: -30, duration: 0.8, ease: "back.out(1.7)" })
           .from(".hero-title", { y: 30, duration: 0.8, ease: "power3.out" }, "-=0.4")
-          .from(".hero-subtitle", { y: 20, duration: 0.8, ease: "power3.out" }, "-=0.4")
-          .from(".hero-buttons a, .hero-buttons button", { 
-              y: 20, 
-              duration: 0.6, 
-              stagger: 0.2, 
-              ease: "power2.out" 
-          }, "-=0.4");
+          .from(".hero-subtitle", { y: 20, duration: 0.8, ease: "power3.out" }, "-=0.4");
 
         // Scroll Down Indicator animation (continuous yoyo)
         gsap.fromTo(".hero-scroll-down", 
